@@ -2,9 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-
+import Feedback from './modules/feedback';
 export default new Vuex.Store({
   state: {
+
+  },
+  getters: {
 
   },
   mutations: {
@@ -12,5 +15,8 @@ export default new Vuex.Store({
   },
   actions: {
 
+  },
+  modules:{
+    Feedback
   }
 })

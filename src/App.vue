@@ -1,12 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <Navigation/>
+    <div class = "container"><br><Feedback/></div>
+    <button v-on:click="testAlert()">Test</button>
     <router-view/>
   </div>
 </template>
+<script>
+import Navigation from '@/components/Navigation.vue'
+import Feedback from '@/components/Feedback.vue'
+import {mapMutations} from 'vuex'
+export default {
+  components: {
+    Navigation,
+    Feedback
+  },
+  methods: {
+    testAlert () {
+      this.$store.commit('Feedback/alert', ['hello world', 'primary']);
+    }
+  }
+}
+</script>
 
 <style>
 #app {
