@@ -8,7 +8,11 @@
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
+<<<<<<< HEAD
     "bootstrap-vue": "^2.0.0-rc.23",
+=======
+    "bootstrap-vue": "^2.0.0-rc.22",
+>>>>>>> 9f71f3ba589bc22f1838d3d588c86ee23435b079
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
