@@ -15,9 +15,14 @@ export default {
     Navigation,
     Feedback
   },
+  data: function() {
+    return {
+      count:0
+    }
+  },
   methods: {
     testAlert () {
-      this.$store.commit('Feedback/alert', ['hello world', 'primary']);
+      this.$store.commit('Feedback/alert', [`hello world ${this.count++}`, 'primary']);
     }
   }
 }

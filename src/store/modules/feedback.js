@@ -11,8 +11,8 @@ const mutations = {
         state.alerts.push(new Alert(...alert));
     },
     dismissAlert(state, index) {
+        console.log(state, index);
         state.alerts.splice(index,1);
-        console.log(index, state.alerts);
     }
 }
 export default {

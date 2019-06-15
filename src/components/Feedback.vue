@@ -4,8 +4,8 @@
                  v-bind:key="index"
                  :variant="alert.variant"
                  :dismissible="alert.dismissible"
-                 @dismissed="dismiss(index)"
-                  :show="true">{{alert.content}}</b-alert>
+                 @dismissed="dismissAlert(index)"
+                 show>{{alert.content}}</b-alert>
     </div>
 </template>
 <script>
@@ -17,7 +17,12 @@ export default {
         })
     },
     methods: {
-        ...mapMutations({dismiss:'Feedback/dismissAlert'})
+        ...mapMutations({dismiss:'Feedback/dismissAlert'}),
+        dismissAlert:function(index) {
+            console.log('dismissedAlert', index)
+            debugger;
+            this.$store.commit('Feedback/dismissAlert', index);
+        }
     }
 }
 </script>
