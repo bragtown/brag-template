@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navigation/>
-    <div class = "container"><br><Feedback namedArray="bananas"/></div>
+    <div class = "container"><br><Feedback :namedArray="namedArray"/></div>
     <button v-on:click="testAlert()">Test</button>
     <router-view/>
   </div>
@@ -18,12 +18,13 @@ export default {
   },
   data: function() {
     return {
-      count:0
+      count:0,
+      namedArray:false
     }
   },
   methods: {
     testAlert () {
-      this.$store.commit('Feedback/alert', {alert:new Alert(`hello world ${this.count++}`, 'primary'), namedArray:'bananas'});
+      this.$store.commit('Feedback/alert', {alert:new Alert(`hello world ${this.count++}`, 'primary'), namedArray:this.namedArray});
     }
   }
 }

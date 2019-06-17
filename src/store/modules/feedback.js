@@ -1,4 +1,5 @@
 import Alert from '../../models/Alert';
+import Vue from 'vue';
 import alertValidator from '../../validation/AlertValidator';
 const state = {
     alertsArrays: {
@@ -6,7 +7,7 @@ const state = {
     }
 }
 const getters = {
-    getAlerts:(state)=>(arrName = 'default') => {
+    getAlerts:(state)=> (arrName)=>{
         if (state.alertsArrays[arrName]) return state.alertsArrays[arrName];
         else return state.alertsArrays['default'];
     }
@@ -17,7 +18,6 @@ const mutations = {
         try {
             alertValidator(alert);
             state.alertsArrays[namedArray].push(alert);
-            console.log(alert, namedArray, state)
         } catch(err) {
             console.log(err);
         } 
@@ -27,13 +27,12 @@ const mutations = {
     },
     setAlertArray(state, namedArray) {
         if (!state.alertsArrays[namedArray]) {
-            state.alertsArrays[namedArray] = [new Alert('craxytown', 'danger')];
+            Vue.set(state.alertsArrays, namedArray, [])
         }
     }
 }
 const actions = {
     dismissAlert(context, payload) {
-        console.log('payload',payload)
         setTimeout(() => {
             context.commit('dismissAlert', payload);
         }, 1);

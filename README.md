@@ -27,3 +27,13 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### ToDo
+Feedback Serice
+Modal Service
+Navigation Bar
+HTTP Service
+Dirty Service
+Date Service
+Logging Service

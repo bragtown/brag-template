@@ -20,17 +20,17 @@ export default {
     },
     computed: {
         alerts:function() {
-            console.log('test',this.$store.state.Feedback.alertsArrays);
-            // return this.$store.getters['Feedback/getAlerts'](this.namedArray);
-            return this.$store.state.Feedback.alertsArrays[this.namedArray];
-        }
+            console.log('test',this.$store.getters['Feedback/getAlerts'](this.namedArray), this.namedArray);
+            return this.$store.getters['Feedback/getAlerts'](this.namedArray);
+            // return this.$store.state.Feedback.alertsArrays[this.namedArray];
+        },
+        // ...mapGetters({alertsObj:'Feedback/getAlertsObj'})
     },
     methods: {
         ...mapActions({dismiss:'Feedback/dismissAlert'}),
 
     },
     beforeMount() {
-        console.log('beforeMount')
         this.$store.commit('Feedback/setAlertArray', this.namedArray);
     }
 }
