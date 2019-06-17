@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navigation/>
-    <div class = "container"><br><Feedback/></div>
+    <div class = "container"><br><Feedback namedArray="bananas"/></div>
     <button v-on:click="testAlert()">Test</button>
     <router-view/>
   </div>
@@ -9,6 +9,7 @@
 <script>
 import Navigation from '@/components/Navigation.vue'
 import Feedback from '@/components/Feedback.vue'
+import Alert from '@/models/Alert'
 import {mapMutations} from 'vuex'
 export default {
   components: {
@@ -22,7 +23,7 @@ export default {
   },
   methods: {
     testAlert () {
-      this.$store.commit('Feedback/alert', [`hello world ${this.count++}`, 'primary']);
+      this.$store.commit('Feedback/alert', {alert:new Alert(`hello world ${this.count++}`, 'primary'), namedArray:'bananas'});
     }
   }
 }

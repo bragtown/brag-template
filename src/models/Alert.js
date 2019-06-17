@@ -3,6 +3,7 @@ class Alert {
         this.content = content;
         this.variant = variant;
         this.dismissible = dismissible;
+        this.visible = true;
     }
 }
 
