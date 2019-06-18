@@ -2,27 +2,36 @@
     <div>
         <b-alert v-for = "(alert,index) in alerts"
                  v-bind:key="index"
+                 v-model="alert.visible"
                  :variant="alert.variant"
                  :dismissible="alert.dismissible"
-                 @dismissed="dismissAlert(index)"
-                 show>{{alert.content}}</b-alert>
+                 @dismissed="dismiss({index, namedArray})"
+                 >{{alert.content}}</b-alert>
     </div>
 </template>
 <script>
-import {mapState, mapMutations} from 'vuex'
+import {mapGetters, mapMutations, mapActions} from 'vuex'
 export default {
+    props: {
+        namedArray:{
+            type:String,
+            default:'default'
+        }
+    },
     computed: {
-        ...mapState({
-            alerts: state => state.Feedback.alerts
-        })
+        alerts:function() {
+            console.log('test',this.$store.getters['Feedback/getAlerts'](this.namedArray), this.namedArray);
+            return this.$store.getters['Feedback/getAlerts'](this.namedArray);
+            // return this.$store.state.Feedback.alertsArrays[this.namedArray];
+        },
+        // ...mapGetters({alertsObj:'Feedback/getAlertsObj'})
     },
     methods: {
-        ...mapMutations({dismiss:'Feedback/dismissAlert'}),
-        dismissAlert:function(index) {
-            console.log('dismissedAlert', index)
-            debugger;
-            this.$store.commit('Feedback/dismissAlert', index);
-        }
+        ...mapActions({dismiss:'Feedback/dismissAlert'}),
+
+    },
+    beforeMount() {
+        this.$store.commit('Feedback/setAlertArray', this.namedArray);
     }
 }
 </script>

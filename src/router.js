@@ -19,6 +19,13 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
       displayOnNav:true,
       leftRoute:true
+    },
+    {
+      path: '/alerts',
+      name: 'Alerts',
+      component: () => import(/* webpackChunkName: "about" */ './views/Alert.vue'),
+      displayOnNav:true,
+      leftRoute:true
     }
   ]
 })
