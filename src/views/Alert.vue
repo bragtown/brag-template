@@ -1,17 +1,15 @@
 <template>
-  <div id="app">
-    <Navigation/>
-    <router-view/>
-  </div>
+    <div class = "container">
+        <Feedback :namedArray="namedArray"/>
+        <button v-on:click="testAlert()">Test</button>
+    </div>
 </template>
 <script>
-import Navigation from '@/components/Navigation.vue'
 import Feedback from '@/components/Feedback.vue'
 import Alert from '@/models/Alert'
 import {mapMutations} from 'vuex'
 export default {
   components: {
-    Navigation,
     Feedback
   },
   data: function() {
@@ -25,27 +23,6 @@ export default {
       this.$store.commit('Feedback/alert', {alert:new Alert(`hello world ${this.count++}`, 'primary'), namedArray:this.namedArray});
     }
   }
+    
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
