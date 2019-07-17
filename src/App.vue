@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Navigation/>
+    <Feedback/>
     <router-view/>
   </div>
 </template>
@@ -21,9 +22,6 @@ export default {
     }
   },
   methods: {
-    testAlert () {
-      this.$store.commit('Feedback/alert', {alert:new Alert(`hello world ${this.count++}`, 'primary'), namedArray:this.namedArray});
-    }
   }
 }
 </script>
