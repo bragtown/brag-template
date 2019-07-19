@@ -1,6 +1,6 @@
 <template>
     <div class = "container">
-        <Feedback :namedArray="namedArray"/>
+        <!-- <Feedback :namedArray="namedArray"/> -->
         <button v-on:click="testAlert()">Test</button>
     </div>
 </template>
