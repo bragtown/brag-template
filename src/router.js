@@ -26,6 +26,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/Alert.vue'),
       displayOnNav:true,
       leftRoute:true
+    },
+    {
+      path: '/account',
+      name: 'Account',
+      component: () => import(/* webpackChunkName: "about" */ './views/Account.vue'),
+      displayOnNav:false
     }
   ]
 })
